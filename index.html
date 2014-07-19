@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>&lt;mc-skinpreview&gt;</title>
+
+    <!-- Importing Web Component's Polyfill -->
+    <script src="../bower_components/platform/platform.js"></script>
+
+    <!-- Importing Custom Elements -->
+    <link rel="import" href="../dist/mc-skinpreview.html">
+    <style type="text/css">
+    mc-skinpreview {
+      display: inline-block;
+    }
+    </style>
+</head>
+<body>
+
+    <!-- Using Custom Elements -->
+    
+
+
+<h2>Examples:</h2>
+
+<mc-skinpreview width="200" height="300" src="char.png"></mc-skinpreview>
+
+<div style="width:200px;text-align:center;" id="mindcrack_txt"></div>
+<mc-skinpreview id="mindcrack" width="200" height="300"></mc-skinpreview><br>
+Select Skin: <input type="text" id="username"> or <select id="select"></select>
+
+  
+  <script>
+    var container = document.querySelector("#container");
+
+
+    var usernames = [
+      'adlingtont',
+      'AnderZEL',
+      'Arkas',
+      'Aureylian',
+      'AvidyaZEN',
+      'BdoubleO100',
+      'BlameTC',
+      'Docm77',
+      'Etho',
+      'generikb',
+      'Guude',
+      'jsano19',
+      'kurtmac',
+      'mcgamer',
+      'Mhykol',
+      'Millbee',
+      'Nebris',
+      'Pakratt0013',
+      'paulsoaresjr',
+      'PauseUnpause',
+      'Pyro_0',
+      'SethBling',
+      'sevadus',
+      'Vechs_',
+      'VintageBeef',
+      'W92Baj',
+      'Zisteau'
+      ];
+      
+    var mindcrack = document.querySelector("#mindcrack");
+    var mindcrack_txt = document.querySelector('#mindcrack_txt');
+    var current = 0, timeout = 0;
+    //var switching = true;
+    var select = document.querySelector("#select");
+    var input = document.querySelector("input");
+    usernames.forEach(function(name, idx) {
+      var option = document.createElement('option');
+      option.setAttribute('value', idx);
+      option.appendChild(document.createTextNode(name));
+      select.appendChild(option);
+    });
+    option = document.createElement('option');
+    option.setAttribute('value', usernames.length);
+    option.setAttribute('selected', true);
+    option.appendChild(document.createTextNode("Rotate Skin"));
+    select.appendChild(option);
+    select.addEventListener('change', function(e) {
+      clearTimeout(timeout);
+      switching = (e.target.value == usernames.length);
+      current = e.target.value;
+      switchSkin();
+    });
+    input.addEventListener('change', function(e) {
+      clearTimeout(timeout);
+      switching = false;
+      switchSkin(e.target.value);
+    });
+    function switchSkin(username) {
+      if(!username) username = usernames[current++%usernames.length];
+      mindcrack.setAttribute('username', username);
+      mindcrack_txt.innerHTML = username;
+      if (switching) {
+        timeout = setTimeout(switchSkin, 2000);
+      }
+    }
+    switchSkin();
+    
+
+  </script>
+
+</body>
+</html>
