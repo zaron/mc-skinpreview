@@ -23,10 +23,14 @@
 
 <h2>Examples:</h2>
 
-<mc-skinpreview width="200" height="300" src="char.png"></mc-skinpreview>
 
-<div style="width:200px;text-align:center;" id="mindcrack_txt"></div>
-<mc-skinpreview id="mindcrack" width="200" height="300"></mc-skinpreview><br>
+<h3>src</h3>
+<mc-skinpreview width="50" height="100" src="char.png"></mc-skinpreview>
+
+
+<h3>username</h3>
+<div style="width:100px;text-align:center;" id="mindcrack_txt"></div>
+<mc-skinpreview id="mindcrack" ></mc-skinpreview><br>
 Select Skin: <input type="text" id="username"> or <select id="select"></select>
 
   
@@ -67,7 +71,7 @@ Select Skin: <input type="text" id="username"> or <select id="select"></select>
     var mindcrack = document.querySelector("#mindcrack");
     var mindcrack_txt = document.querySelector('#mindcrack_txt');
     var current = 0, timeout = 0;
-    //var switching = true;
+    var switching = true;
     var select = document.querySelector("#select");
     var input = document.querySelector("input");
     usernames.forEach(function(name, idx) {
