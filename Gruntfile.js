@@ -26,6 +26,9 @@ module.exports = function(grunt) {
                 replacements: [{
                     from: 'bower_components',
                     to: '..'
+                }, {
+                    from: 'build/three.js',
+                    to: 'build/three.min.js'
                 }]
             }
         }
