@@ -19,14 +19,14 @@ The model loader was originally written by @daniel_hede and is now stripped down
   <script src="bower_components/platform/platform.js"></script>
   ```
 
-2. Import X-Gif
+2. Import mc-skinpreview
   ```html
-  <link rel="import" href="bower_components/x-gif/dist/x-gif.html">
+  <link rel="import" href="bower_components/mc-skinpreview/dist/mc-skinpreview.html">
   ```
 
-3. Enjoy limitless GIF possibilities
+3. Enjoy beautiful Minecraft avatars
   ```html
-  <x-gif src="probably_cats.gif"></x-gif>
+ <mc-skinpreview src="skin.png"></mc-skinpreview>
   ```
 
 
